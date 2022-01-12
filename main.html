@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcumlator</title>
+    <style>
+        button{
+            border-radius: 30px;
+            cursor: pointer;
+            border: none;
+            align-items: center;
+            color: rgb(15, 15, 15);
+            background-color: rgb(226, 226, 204);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        button:hover{
+            box-shadow: 0px 0px 15px 5px black;
+            transition-duration: 0.3s;
+        }
+        #body {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            background-image: url("./img/Compass_1600_x_900_widescreen.jpg");
+            background-position: center;
+
+        }
+
+        .heading {
+            position: absolute;
+            right: 0;
+            left: 0;
+            border: 2px solid orangered;
+            top: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .calc {
+            border: 2px solid royalblue;
+        }
+
+        .inputbox {
+            background: rgb(179, 179, 179,0.1);
+            height: 32rem;
+            width: 35rem;
+            align-self: center;
+            margin: 0.5rem;
+            font-size: 1.7rem;
+            border-radius: 32px 32px 0px 0px;
+            transition-duration: 0.2s;
+        }
+        .inputbox:hover{
+            box-shadow: 0px 0px 30px 10px black;
+            transition-duration: 0.2s;
+        }
+
+        #output {
+            background-image: url("./img/dry-back-wood-design-burnham-llw-229-sample-pro-b-arcit18.jpg");
+            opacity: 0.9;
+            height: 32rem;
+            width: 35rem;
+            align-self: center;
+            margin: 0.5rem;
+            box-shadow: 0px 0px 15px 10px black;
+        }
+
+        .box1 {
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+            top: 1rem;
+        }
+
+        .b1 {
+            height: 4rem;
+            width: 5rem;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .box2 {
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+            text-align: center;
+            top: 2rem;
+        }
+
+        .b2 {
+            height: 4rem;
+            width: 5rem;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .box3 {
+            display: flex;
+            text-align: center;
+            justify-content: space-evenly;
+            position: relative;
+            top: 3rem;
+        }
+
+        .b3 {
+            height: 4rem;
+            text-align: center;
+            width: 5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .box4 {
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+            text-align: center;
+            top: 4rem;
+        }
+
+        .b4 {
+            height: 4rem;
+            width: 5rem;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .box5 {
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+            top: 5rem;
+            text-align: center;
+        }
+
+        .b5 {
+            height: 4rem;
+            width: 5rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .box6 {
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+            text-align: center;
+            top: 6rem;
+        }
+
+        .b6 {
+            height: 4rem;
+            width: 5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ANSWER {
+            width: 15rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .outputnavR1 {
+            height: 2.3rem;
+            width: 1.5rem;
+            font-size: 1.7rem;
+            color: beige;
+            text-align: center;
+        }
+
+        .outputnavR2 {
+            height: 2.3rem;
+            width: 2rem;
+            font-size: 1.7rem;
+            text-align: center;
+        }
+
+        .outputbox1 {
+            display: flex;
+            font-size: 1.7rem;
+            text-align: center;
+        }
+
+        #outputbox2 {
+            color: beige;
+            height: 2.3rem;
+            font-size: 1.7rem;
+        }
+        #basicMaths{
+            position: absolute;
+        }
+        #outputbox3{
+            height: 2.6rem;
+            font-size: 1.7rem;
+            color: beige;
+        }
+        #outputbox4{
+            position: absolute;
+            top: 0%;
+            height: 32rem;
+            width: 35rem;
+            font-size: 1.7rem;
+            text-align: center;
+        }
+        #logo{
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="body">
+        <div class="inputbox">
+            <div class="box1">
+                <button class="b1" id="cos" onclick="cos()">cos()</button>
+                <button class="b1" id="sin" onclick="sin()">sin()</button>
+                <button class="b1" id="tan" onclick="tan()">tan()</button>
+                <button class="b1" id="log" onclick="log()">log</button>
+                <button class="b1" id="cheems" onclick="designButton()">Say<br>My<br>Name</button>
+            </div>
+            <div class="box2">
+                <button class="b2" id="pow" onclick="power()">Power</button>
+                <button class="b2" id="roundUp" onclick="roundUp()">Round Up</button>
+                <button class="b2" id="roundDown" onclick="roundDown()">Round Down</button>
+                <button class="b2" id="squared" onclick="square()">Square</button>
+                <button class="b2" id="root" onclick="root()">Root</button>
+            </div>
+            <div class="box3">
+                <button class="b3" id="seven" onclick="dig(7)">7</button>
+                <button class="b3" id="eight" onclick="dig(8)">8</button>
+                <button class="b3" id="nine" onclick="dig(9)">9</button>
+                <button class="b3" id="clear" onclick="window.location.reload()">Clear</button>
+                <button class="b3" id="del" onclick="num()">NUM</button>
+            </div>
+            <div class="box4">
+                <button class="b4" id="four" onclick="dig(4)">4</button>
+                <button class="b4" id="five" onclick="dig(5)">5</button>
+                <button class="b4" id="six" onclick="dig(6)">6</button>
+                <button class="b4" id="X" onclick="multiply()">*</button>
+                <button class="b4" id="/" onclick="divide()">/</button>
+            </div>
+            <div class="box5">
+                <button class="b5" id="one" onclick="dig(1)">1</button>
+                <button class="b5" id="two" onclick="dig(2)">2</button>
+                <button class="b5" id="three" onclick="dig(3)">3</button>
+                <button class="b5" id="+" onclick="add()">+</button>
+                <button class="b5" id="-" onclick="minus()">-</button>
+            </div>
+            <div class="box6">
+                <button class="b6" id="." onclick="decimal()">.</button>
+                <button class="b6" id="zero" onclick="dig(0)">0</button>
+                <button class="b6" id="answer" onclick="answer()">Answer</button>
+            </div>
+        </div>
+        <div id="output">
+            <div id="basicMaths">
+                <div class="outputbox1">
+                    <nav id="outputnav1" class="outputnavR1"></nav>
+                    <nav id="outputnav2" class="outputnavR1"></nav>
+                    <nav id="outputnav3" class="outputnavR1"></nav>
+                    <nav id="outputnav4" class="outputnavR1"></nav>
+                    <nav id="outputnav5" class="outputnavR1"></nav>
+                    <nav id="outputnav6" class="outputnavR1"></nav>
+                    <nav id="outputnav7" class="outputnavR1"></nav>
+                    <nav id="outputnav8" class="outputnavR1"></nav>
+                    <nav id="outputnav9" class="outputnavR1"></nav>
+                    <nav id="outputnav10" class="outputnavR1"></nav>
+                    <nav id="outputnav11" class="outputnavR1"></nav>
+                    <nav id="outputnav12" class="outputnavR1"></nav>
+                    <nav id="outputnav13" class="outputnavR1"></nav>
+                    <nav id="outputnav14" class="outputnavR1"></nav>
+                    <nav id="outputnav15" class="outputnavR1"></nav>
+                    <nav id="outputnav16" class="outputnavR1"></nav>
+                    <nav id="outputnav17" class="outputnavR1"></nav>
+                    <nav id="outputnav18" class="outputnavR1"></nav>
+                    <nav id="outputnav19" class="outputnavR1"></nav>
+                    <nav id="outputnav20" class="outputnavR1"></nav>
+                </div>
+                <div id="outputbox2">
+                </div>
+
+                <div id="outputbox3">
+                </div>
+                <div id="outputbox4">
+                    <img id="logo" src="./img/rohanlogo-removebg-preview.png" alt="icon" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let body = document.getElementById("body");
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let four = document.getElementById("four");
+        let five = document.getElementById("five");
+        let six = document.getElementById("six");
+        let seven = document.getElementById("seven");
+        let eight = document.getElementById("eight");
+        let nine = document.getElementById("nine");
+        let logo = document.getElementById("logo");
+        let number = 0;
+        let n = 0;
+        let x = 1;
+        let dec = 0;
+        let decimalOperator = 0;
+        let additionAnswer = 0;
+        let subtractionAnswer = 0;
+        let divideAnswer = 0;
+        let multiplyAnswer = 1;
+        let roundUpAnswer = 0;
+        let roundDownAnswer = 0;
+        let squareAnswer = 0;
+        let powerAnswer = 0;
+        let powr = 0;
+        let rootAnswer = 0;
+        let logAnswer = 0;
+        let sinAnswer = 0;
+        let tanAnswer = 0;
+        let cosAnswer = 0;
+        function dig(n) {
+            number = (number * 10) + n;
+            document.getElementById(`outputnav${x}`).innerHTML = n;
+            x++;
+            if(decimalOperator>0){
+                dec++;
+            }
+        }
+        function decimal(){
+            document.getElementById(`outputnav${x}`).innerHTML = ".";
+            decimalOperator++;
+            x++;
+        }
+        function add() {
+            console.log(number);
+            additionAnswer += number/(Math.pow(10,dec));
+            dec = 0;
+            decimalOperator = 0;
+            number = 0;
+            document.getElementById(`outputnav${x}`).innerHTML = " + ";
+            x++;
+        }
+        function minus() {
+            console.log(number);
+            subtractionAnswer += number/(Math.pow(10,dec)) ;
+            dec = 0;
+            decimalOperator = 0;
+            number = 0;
+            document.getElementById(`outputnav${x}`).innerHTML = " - ";
+            x++;
+        }
+        function divide()
+        {
+            console.log(number);
+            divideAnswer += (number/(Math.pow(10,dec)));
+            dec = 0;
+            decimalOperator = 0;
+            number = 0;
+            document.getElementById(`outputnav${x}`).innerHTML = " / ";
+            x++;
+        }
+        function multiply()
+        {
+            console.log(number);
+            multiplyAnswer = (number/(Math.pow(10,dec)));
+            dec = 0;
+            decimalOperator = 0;
+            number = 0;
+            document.getElementById(`outputnav${x}`).innerHTML = " * ";
+            x++;
+        }
+        function roundUp()
+        {
+            roundUpAnswer = (number/(Math.pow(10,dec)));
+            dec = 0;
+            decimalOperator = 0;
+            number = 0;
+        }
+        function roundDown()
+        {
+            roundDownAnswer = (number/(Math.pow(10,dec)));
+            dec = 0;
+            decimalOperator = 0;
+            number = 0;
+        }
+
+        function square()
+        {
+            squareAnswer = (number/(Math.pow(10,dec)));
+            dec = 0;
+            decimalOperator = 0;
+            number = 0;
+        }
+        function power()
+        {
+            document.getElementById(`outputnav${x}`).innerHTML = " ^ ";
+            powerAnswer = (number/(Math.pow(10,dec)));
+            number = 0;
+            dec = 0;
+            decimalOperator = 0;
+            x++;
+        }
+        function root()
+        {
+            rootAnswer = (number/(Math.pow(10,dec)));
+        }
+        function log()
+        {
+            document.getElementById(`outputbox2`).innerHTML = "its log value ";
+            logAnswer = (number/(Math.pow(10,dec)));
+        }
+        function sin()
+        {
+            document.getElementById(`outputbox2`).innerHTML = "its sin() value ";
+            cosAnswer = (number/(Math.pow(10,dec)));
+        }
+        function tan()
+        {
+            document.getElementById(`outputbox2`).innerHTML = "its tan() value ";
+            tanAnswer = (number/(Math.pow(10,dec)));
+        }
+        function answer() {
+            if (additionAnswer != 0) {
+                additionAnswer += number/Math.pow(10,dec);
+                dec = 0;
+                decimalOperator = 0;
+                number = 0;
+                additionAnswer = additionAnswer.toFixed(6)
+                document.getElementById("outputbox2").innerHTML = additionAnswer;
+                x++;
+            }
+            if (subtractionAnswer != 0) {
+                subtractionAnswer -= number/Math.pow(10,dec);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+                subtractionAnswer = subtractionAnswer.toFixed(6);
+                document.getElementById("outputbox2").innerHTML = subtractionAnswer;
+                x++;
+            }
+            if (divideAnswer != 0){
+                divideAnswer = divideAnswer/(number/Math.pow(10,dec));
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+                divideAnswer = divideAnswer.toFixed(6);
+                document.getElementById("outputbox2").innerHTML = divideAnswer;
+                x++;
+            }
+            if(multiplyAnswer != 1){
+                multiplyAnswer = multiplyAnswer*(number/Math.pow(10,dec));
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+                multiplyAnswer = multiplyAnswer.toFixed(6);
+                document.getElementById("outputbox2").innerHTML = multiplyAnswer;
+                x++;
+            }
+            if (roundUpAnswer != 0)
+            {
+                document.getElementById("outputbox2").innerHTML = Math.ceil(roundUpAnswer);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+            }
+            if (roundDownAnswer != 0)
+            {
+                document.getElementById("outputbox2").innerHTML = Math.floor(roundDownAnswer);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+            }
+            if (squareAnswer != 0)
+            {
+                document.getElementById("outputbox2").innerHTML = squareAnswer*squareAnswer;
+            }
+            if(powerAnswer != 0)
+            {
+                powr = (number/Math.pow(10,dec));
+                document.getElementById("outputbox2").innerHTML = Math.pow(powerAnswer, powr);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+            }
+            if(rootAnswer != 0)
+            {
+                document.getElementById("outputbox2").innerHTML = Math.pow(rootAnswer, 0.5);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+            }
+            if(logAnswer != 0)
+            {
+                document.getElementById("outputbox3").innerHTML = Math.log(logAnswer);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+            }
+            if(sinAnswer != 0)
+            {
+                document.getElementById("outputbox3").innerHTML = Math.sin(sinAnswer);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+            }
+            if(cosAnswer != 0)
+            {
+                document.getElementById("outputbox3").innerHTML = Math.cos(cosAnswer);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+            }
+            if(tanAnswer != 0)
+            {
+                document.getElementById("outputbox3").innerHTML = Math.tan(tanAnswer);
+                number = 0;
+                dec = 0;
+                decimalOperator = 0;
+            }
+        }
+        function designButton()
+        {
+            document.getElementById("logo").style.opacity = "1";
+            document.getElementById("logo").style.transitionDuration = "5s";
+            setTimeout(reduceOpacity, 5000);
+        }
+        function reduceOpacity()
+        {
+            document.getElementById("logo").style.opacity = "0";
+            document.getElementById("logo").style.transitionDuration = "5s";
+        }
+    </script>
+</body>
+
+</html>
