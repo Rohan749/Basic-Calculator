@@ -1,2 +1,2 @@
 # Graffiti-Calculator
-A simple calculator using HTML, CSS and JavaScript
+A simple Graffiti calculator using HTML, CSS and JavaScript
